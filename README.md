@@ -5,4 +5,4 @@
 
 In-script messages is in Russian language
 
-[Download](https://github.com/SunsetTechuila/Platform-tools-Installer/releases/download/1.0/platform-tools_installer.bat)
+[Download](https://github.com/SunsetTechuila/Platform-tools-Installer/releases/download/2.0/platform-tools_installer.bat)
