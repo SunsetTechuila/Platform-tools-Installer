@@ -15,7 +15,7 @@ exit
 :Download_dialog_app
 echo. && echo.Скачивание необходимых файлов...
 if exist !Temp!\dlgOpenFolder.exe del /f /q !Temp!\dlgOpenFolder.exe
-powershell -Command "& {Invoke-WebRequest https://github.com/SunsetTechuila/Platform-tools-Installer/raw/main/dlgOpenFolder.exe -outfile '%Temp%\dlgOpenFolder.exe'}"
+powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12}; &"{Invoke-WebRequest https://github.com/SunsetTechuila/Platform-tools-Installer/raw/main/dlgOpenFolder.exe -outfile '%Temp%\dlgOpenFolder.exe'}""
 CLS
 :Check_start_argument
 for /f "delims=" %%a in (!Temp!\arg.txt) do set "arg=%%a"
@@ -24,7 +24,7 @@ if not "%arg%"=="" set "ArchivePath=%arg%" && goto :Ask_install_path
 :Download_PT
 echo. && echo.Скачивание Platform tools...
 if exist !Temp!\platform-tools.zip del /f /q !Temp!\platform-tools.zip
-powershell -Command "& {Invoke-WebRequest https://dl.google.com/android/repository/platform-tools-latest-windows.zip -outfile '%Temp%\platform-tools.zip'}"
+powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12}; &"{Invoke-WebRequest https://dl.google.com/android/repository/platform-tools-latest-windows.zip -outfile '%Temp%\platform-tools.zip'}""
 set "ArchivePath=%Temp%\platform-tools.zip"
 CLS
 :Ask_install_path
